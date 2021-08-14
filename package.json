@@ -1,0 +1,52 @@
+{
+  "name": "react-mailto-link",
+  "version": "1.0.0",
+  "repository": "git@github.com:theo-mazars/react-mailto-link.git",
+  "author": "Theo <me@theomazars.com>",
+  "license": "MIT",
+  "description": "A react component to create and display a mailto link in a more secure way.",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/cjs/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "keywords": [
+    "email",
+    "mailto",
+    "markup",
+    "react",
+    "react-component",
+    "wrapper"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "format": "prettier --write \"src/**/*.tsx\"",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest --config jestconfig.json",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test && yarn lint",
+    "preVersion": "yarn lint",
+    "version": "yarn format && git add -A src",
+    "postVersion": "git push && git push --tags"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.10.9",
+    "@types/enzyme-adapter-react-15": "^1.0.6",
+    "@types/jest": "^27.0.1",
+    "@types/react": "^17.0.17",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-15": "^1.4.3",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
+    "react-test-renderer": "15",
+    "ts-jest": "^27.0.4",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
+}
