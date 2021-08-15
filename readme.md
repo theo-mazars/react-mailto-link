@@ -1,6 +1,6 @@
-# react-mailto-link 
+# react-mailto-link
 
-[![Build Status](https://img.shields.io/github/checks-status/theo-mazars/react-mailto-link/main?style=flat-square)](https://img.shields.io/github/checks-status/theo-mazars/react-mailto-link/main?style=flat-square)
+[![CI](https://github.com/theo-mazars/react-mailto-link/actions/workflows/compile-test.yml/badge.svg)](https://github.com/theo-mazars/react-mailto-link/actions/workflows/compile-test.yml)
 
 > A react component to create and display a [mailto](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Email_links) link in a more secure way.
 
@@ -19,8 +19,8 @@ import React from "react";
 import Mailto from "react-mailto-link";
 
 const Component = () => {
-  return (<Mailto email="john.doe@example.com" obfuscated={true} />)
-}
+  return <Mailto email="john.doe@example.com" obfuscated={true} />;
+};
 
 // OR
 
@@ -29,19 +29,19 @@ const Component = () => {
     <Mailto email="john.doe@example.com" obfuscated={true}>
       <div>Custom Children</div>
     </Mailto>
-  )
-}
+  );
+};
 
-export default Component
+export default Component;
 ```
 
 ## Options
 
-| Property  | Type      | Argument     | Default | Description                                                                                                                                                                                               |
-| --------- | --------- | ------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| email     | `string`  | `<required>` | `null`  | email address of the intended recipient.                                                                                                                                                                  |
+| Property   | Type      | Argument     | Default | Description                                                                                                                                                                                               |
+| ---------- | --------- | ------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| email      | `string`  | `<required>` | `null`  | email address of the intended recipient.                                                                                                                                                                  |
 | obfuscated | `boolean` | `<optional>` | `false` | show the email address in the status bar.                                                                                                                                                                 |
-| headers   | `object`  | `<optional>` | `null`  | any standard mail header fields. The most commonly-used of these are "subject", "cc", and "body" (which is not a true header field, but allows you to specify a short content message for the new email). |
+| headers    | `object`  | `<optional>` | `null`  | any standard mail header fields. The most commonly-used of these are "subject", "cc", and "body" (which is not a true header field, but allows you to specify a short content message for the new email). |
 
 ## Developing
 

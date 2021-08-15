@@ -1,7 +1,4 @@
 node_modules/
 lib/
 test/tmp/
-yarn.lock
 yarn-error.log
-yarn-out.log
-package-lock.json
