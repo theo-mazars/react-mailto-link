@@ -1,6 +1,7 @@
 # react-mailto-link
 
 [![CI](https://github.com/theo-mazars/react-mailto-link/actions/workflows/compile-test.yml/badge.svg)](https://github.com/theo-mazars/react-mailto-link/actions/workflows/compile-test.yml)
+[![NPM](https://img.shields.io/npm/dw/react-mailto-link)](https://img.shields.io/npm/dw/react-mailto-link)
 
 > A react component to create and display a [mailto](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Email_links) link in a more secure way.
 
