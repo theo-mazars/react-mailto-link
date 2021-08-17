@@ -53,9 +53,7 @@ const Mailto: FC<MailtoProps> = ({
     window.open(createMailtoLink({ email, headers }));
   }
 
-  const Obfuscate: FC<ObfuscateProps> = (
-    props: ObfuscateProps
-  ): JSX.Element => (
+  const Obfuscate: FC<ObfuscateProps> = (props: ObfuscateProps): JSX.Element => (
     <span
       style={{
         unicodeBidi: "bidi-override",
@@ -70,12 +68,7 @@ const Mailto: FC<MailtoProps> = ({
   );
 
   return obfuscated ? (
-    <a
-      onClick={handleClick}
-      href={"mailto:obfuscated"}
-      className={className}
-      style={style}
-    >
+    <a onClick={handleClick} href={"mailto:obfuscated"} className={className} style={style}>
       {children || <Obfuscate email={email} />}
     </a>
   ) : (
