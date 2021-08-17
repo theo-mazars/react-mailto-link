@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, MouseEventHandler } from "react";
 
 export type Headers = {
   to?: string;
@@ -40,9 +40,16 @@ export const createMailtoLink = ({ email, headers }: MailtoProps): string => {
   return `mailto:${email}?${headersToRequest(headers)}`;
 };
 
-const Mailto: FC<MailtoProps> = ({ email, obfuscated, children, className, style }: MailtoProps): JSX.Element => {
+const Mailto: FC<MailtoProps> = ({
+  children,
+  className,
+  headers,
+  email,
+  obfuscated,
+  style,
+}: MailtoProps): JSX.Element => {
   function handleClick(): void {
-    document.open(`mailto:${email}`);
+    window.open(createMailtoLink({ email, headers }));
   }
 
   const Obfuscate: FC<ObfuscateProps> = (props: ObfuscateProps): JSX.Element => (
@@ -60,7 +67,7 @@ const Mailto: FC<MailtoProps> = ({ email, obfuscated, children, className, style
   );
 
   return obfuscated ? (
-    <a onClick={handleClick} className={className} style={style} href="mailto:obfuscated">
+    <a onClick={handleClick} className={className} style={style}>
       {children || <Obfuscate email={email} />}
     </a>
   ) : (
