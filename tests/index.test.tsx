@@ -84,6 +84,12 @@ test("Mailto renders simple mailto link href", () => {
   expect(wrapper.attr().href).toBe("mailto:john.doe@example.com");
 });
 
+test("Mailto renders simple mailto link href", () => {
+  const wrapper = render(<Mailto email="john.doe@example.com" obfuscated={true} />);
+
+  expect(wrapper.attr().href).toBe("mailto:obfuscated");
+});
+
 test("Mailto renders obfuscate children", () => {
   const wrapper = render(
     <Mailto email="john.doe@example.com" obfuscated={true}>
