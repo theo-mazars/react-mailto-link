@@ -1,8 +1,5 @@
 import Mailto, { createMailtoLink, headersToRequest, Headers, MailtoProps } from "../src/index";
-import { configure, shallow, render, mount } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-
-configure({ adapter: new Adapter() });
+import { render } from "@testing-library/react";
 
 test("Mailto create mail to link no headers", () => {
   const mailtoLink = createMailtoLink({ email: "me@theomazars.com" } as MailtoProps);
@@ -73,35 +70,35 @@ test("Mailto headers to request with multiple headers", () => {
 });
 
 test("Mailto renders simple mailto link", () => {
-  const wrapper = render(<Mailto email="john.doe@example.com" />);
+  const { container } = render(<Mailto email="john.doe@example.com" />);
 
-  expect(wrapper.text()).toBe("john.doe@example.com");
+  expect(container.textContent).toBe("john.doe@example.com");
 });
 
 test("Mailto renders simple mailto link href", () => {
-  const wrapper = render(<Mailto email="john.doe@example.com" />);
+  const { container } = render(<Mailto email="john.doe@example.com" />);
 
-  expect(wrapper.attr().href).toBe("mailto:john.doe@example.com");
+  expect(container.querySelector("a")?.getAttribute("href")).toBe("mailto:john.doe@example.com");
 });
 
-test("Mailto renders simple mailto link href", () => {
-  const wrapper = render(<Mailto email="john.doe@example.com" obfuscated={true} />);
+test("Mailto renders obfuscated mailto link href", () => {
+  const { container } = render(<Mailto email="john.doe@example.com" obfuscated={true} />);
 
-  expect(wrapper.attr().href).toBe("mailto:obfuscated");
+  expect(container.querySelector("a")?.getAttribute("href")).toBe("mailto:obfuscated");
 });
 
 test("Mailto renders obfuscate children", () => {
-  const wrapper = render(
+  const { container } = render(
     <Mailto email="john.doe@example.com" obfuscated={true}>
       <span>john.doe@example.com</span>
     </Mailto>,
   );
 
-  expect(wrapper.children().text()).toBe("john.doe@example.com");
+  expect(container.querySelector("a")?.textContent).toBe("john.doe@example.com");
 });
 
 test("Mailto renders simple obfuscated mailto link", () => {
-  const wrapper = render(<Mailto email="john.doe@example.com" obfuscated={true} />);
+  const { container } = render(<Mailto email="john.doe@example.com" obfuscated={true} />);
 
-  expect(wrapper.text()).toBe("moc.elpmaxe@eod.nhoj");
+  expect(container.textContent).toBe("moc.elpmaxe@eod.nhoj");
 });
