@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler } from "react";
+import { FC, ReactElement } from "react";
 
 export type Headers = {
   to?: string;
@@ -14,7 +14,7 @@ export type MailtoProps = {
   email: string;
   obfuscated?: boolean;
   headers?: Headers;
-  children?: JSX.Element;
+  children?: ReactElement;
   reverse?: boolean;
   className?: string;
   style?: object;
@@ -47,13 +47,13 @@ const Mailto: FC<MailtoProps> = ({
   email,
   obfuscated,
   style,
-}: MailtoProps): JSX.Element => {
+}: MailtoProps): ReactElement => {
   function handleClick(e: any): void {
     e.preventDefault();
     window.open(createMailtoLink({ email, headers }));
   }
 
-  const Obfuscate: FC<ObfuscateProps> = (props: ObfuscateProps): JSX.Element => (
+  const Obfuscate: FC<ObfuscateProps> = (props: ObfuscateProps): ReactElement => (
     <span
       style={{
         unicodeBidi: "bidi-override",
