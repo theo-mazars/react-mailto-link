@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, MouseEvent, ReactElement } from "react";
 
 export type Headers = {
   to?: string;
@@ -48,7 +48,7 @@ const Mailto: FC<MailtoProps> = ({
   obfuscated,
   style,
 }: MailtoProps): ReactElement => {
-  function handleClick(e: any): void {
+  function handleClick(e: MouseEvent<HTMLAnchorElement>): void {
     e.preventDefault();
     window.open(createMailtoLink({ email, headers }));
   }
