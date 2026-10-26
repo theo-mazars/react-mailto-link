@@ -1,3 +1,5 @@
+## [1.1.1](https://github.com/theo-mazars/react-mailto-link/compare/v1.1.0...v1.1.1) (2026-10-26)
+
 # [1.1.0](https://github.com/theo-mazars/react-mailto-link/compare/v1.0.3...v1.1.0) (2026-09-02)
 
 
